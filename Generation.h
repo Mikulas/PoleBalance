@@ -83,27 +83,21 @@ double getEntityFitness(Entity e)
 	//printf("fitness was %f\n", e.fitness);
 	if (e.fitness == 0) {
 		for (double t = 0; t < time; t += time_step) {
-			/** @todo fix the order of these calls */
 			e.force = getForceToApply(e);
-			//printf("force=%f\n", e.force);
 			e.cart_acceleration = getCartAcceleration(e);
 			e.pole_acceleration = getPoleAcceleration(e);
 			e.pole_velocity = getPoleVelocity(e);
 			e.cart_velocity = getCartVelocity(e);
 			e.pole_angle = getPoleAngle(e);
-			//printf("angle=%f\n", e.pole_angle);
 			e.cart_position = getCartPosition(e);
 		
 			if (e.cart_position * sgn(e.cart_position) >= fail_position) {
 				e.failed = 1;
-				e.fitness = -2;
-				printf("FINE");
-				exit(1);
-				
 				break;
 			}
 		}
-		return -e.failed;// * (cube(e.pole_angle) * square(e.pole_velocity) * e.pole_acceleration + cube(e.cart_position) * square(e.cart_velocity) * e.cart_acceleration) + power(e.cart_position, 4);
+		/** @todo fixme */
+		return -e.failed * (cube(e.pole_angle) * square(e.pole_velocity) * e.pole_acceleration + cube(e.cart_position) * square(e.cart_velocity) * e.cart_acceleration) + power(e.cart_position, 4);
 	}
 	
 	return e.fitness;
