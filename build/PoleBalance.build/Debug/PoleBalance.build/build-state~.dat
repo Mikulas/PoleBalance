@@ -1,0 +1,74 @@
+TPoleBalance
+v7
+r0
+t314125496.796504
+cCheck dependencies
+cCompileC build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o /Volumes/Data/Projects/PoleBalance/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004ABBF0FD00000000000000EE
+t1253830909
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/math.h
+c000000004A5C14A000000000000004F1
+t1247548576
+s1265
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdio.h
+c000000004A5C14A70000000000004174
+t1247548583
+s16756
+
+N/Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance
+t2
+s0
+
+N/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/PoleBalance.LinkFileList
+c000000004D08F5380000000000000070
+t1292432696
+s112
+
+N/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Volumes/Data/Projects/PoleBalance/config.h
+c000000004D08F4DF0000000000000295
+t1292432607
+s661
+
+N/Volumes/Data/Projects/PoleBalance/main.c
+c000000004D08F53600000000000007B2
+t1292432694
+s1970
+i<stdio.h>
+i<math.h>
+i"config.h"
+i"sgn.h"
+
+N/Volumes/Data/Projects/PoleBalance/sgn.h
+c000000004D08F52B00000000000000DA
+t1292432683
+s218
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies314125496#314125496#0(0"0(0#1#0"31244212048494624#0"0#
+
+CCompileC build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o /Volumes/Data/Projects/PoleBalance/main.c normal x86_64 c com.apple.compilers.gcc.4_2
+s314125496.788570
+e314125496.796199
+r0
+xCompileC
+xbuild/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o
+x/Volumes/Data/Projects/PoleBalance/main.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@49"Compile /Volumes/Data/Projects/PoleBalance/main.c314125496#314125496#0(1673"In file included from /Volumes/Data/Projects/PoleBalance/main.c:5:/Volumes/Data/Projects/PoleBalance/config.h:11: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:12: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:14: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:15: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:17: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:19: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:20: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:22: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/config.h:23: error: both 'unsigned' and 'double' in declaration specifiers/Volumes/Data/Projects/PoleBalance/main.c: In function 'getPoleMotion':/Volumes/Data/Projects/PoleBalance/main.c:33: error: 'l' undeclared (first use in this function)/Volumes/Data/Projects/PoleBalance/main.c:33: error: (Each undeclared identifier is reported only once/Volumes/Data/Projects/PoleBalance/main.c:33: error: for each function it appears in.)/Volumes/Data/Projects/PoleBalance/main.c:34: warning: control reaches end of non-void function/Volumes/Data/Projects/PoleBalance/main.c: In function 'main':/Volumes/Data/Projects/PoleBalance/main.c:75: warning: implicit declaration of function 'printft'12(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#67#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#11#0#11#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#11#0#11#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#177#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#12#0#12#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#12#0#12#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#287#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#14#0#14#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#14#0#14#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#397#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#15#0#15#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#15#0#15#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#507#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#17#0#17#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#17#0#17#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#617#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#19#0#19#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#19#0#19#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#727#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#20#0#20#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#20#0#20#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#837#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#22#0#22#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#22#0#22#0#0"0(4@54"Both 'unsigned' and 'double' in declaration specifiers314125496#947#110#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314125496#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#5#0#5#0#0"0(13@101"Both 'unsigned' and 'double' in declaration specifiers in /Volumes/Data/Projects/PoleBalance/config.h314125496#18446744073709551615#0#0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#23#0#23#0#0"0(6@43"/Volumes/Data/Projects/PoleBalance/config.h314125407#23#0#23#0#0"0(4@43"'l' undeclared (first use in this function)314125496#1129#97#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#33#0#33#0#43"'*' undeclared (first use in this function)0(22@40"Control reaches end of non-void function314125496#1416#96#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#34#0#34#0#40"control reaches end of non-void function0(22@42"Implicit declaration of function 'printft'314125496#1575#98#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314125494#75#0#75#0#36"implicit declaration of function '*'0(0#0#41"/Volumes/Data/Projects/PoleBalance/main.c8386658438684291072#1298"    cd /Volumes/Data/Projects/PoleBalance    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-generated-files.hmap -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-own-target-headers.hmap -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-all-target-headers.hmap -iquote /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-project-headers.hmap -F/Volumes/Data/Projects/PoleBalance/build/Debug -I/Volumes/Data/Projects/PoleBalance/build/Debug/include -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/DerivedSources/x86_64 -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/DerivedSources -c /Volumes/Data/Projects/PoleBalance/main.c -o /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o1#
+
+CLd /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance normal x86_64
+r0
+
