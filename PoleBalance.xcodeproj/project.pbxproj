@@ -27,8 +27,9 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		30543CDB12B92B7F0076F6A8 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		30543CDC12B92C8A0076F6A8 /* sgn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sgn.h; sourceTree = "<group>"; };
+		30543CDC12B92C8A0076F6A8 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
 		30543D4012B92FA60076F6A8 /* Generation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generation.h; sourceTree = "<group>"; };
+		30543D7A12B93F280076F6A8 /* evolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evolution.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* PoleBalance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PoleBalance; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* PoleBalance.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PoleBalance.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,8 +60,9 @@
 			children = (
 				08FB7796FE84155DC02AAC07 /* main.c */,
 				30543CDB12B92B7F0076F6A8 /* config.h */,
-				30543CDC12B92C8A0076F6A8 /* sgn.h */,
+				30543CDC12B92C8A0076F6A8 /* math.h */,
 				30543D4012B92FA60076F6A8 /* Generation.h */,
+				30543D7A12B93F280076F6A8 /* evolution.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
