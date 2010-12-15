@@ -18,6 +18,11 @@ int sgn(double value)
 }
 
 
+double abs(double value)
+{
+	return value * sgn(value);
+}
+
 
 double power(double base, int power)
 {

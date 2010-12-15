@@ -115,7 +115,7 @@ double getEntityFitness(Entity *e)
 			}
 		}
 		/** @todo fixme */
-		e->fitness = -e->failed * (cube(e->pole_angle) * square(e->pole_velocity) * e->pole_acceleration + cube(e->cart_position) * square(e->cart_velocity) * e->cart_acceleration) + power(e->cart_position, 4);
+		e->fitness = -e->failed * abs(cube(e->pole_angle) * square(e->pole_velocity) * e->pole_acceleration + 0.2 * cube(e->cart_position) * square(e->cart_velocity) * e->cart_acceleration);
 	}
 	
 	return e->fitness;
@@ -132,7 +132,6 @@ Entity getBestEntity(Generation gen)
 		if (gen.population[i].fitness > best_fitness) {
 			index = i;
 			best_fitness = gen.population[i].fitness;
-			printEntity(&gen.population[i]);
 		}
 	}
 	

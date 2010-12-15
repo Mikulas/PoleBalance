@@ -35,9 +35,18 @@ Generation getRandomGeneration()
 
 Generation getNextGeneration(Generation gen)
 {
-
+	Generation nextGen;
+	
 	for (int i = 0; i < GENERATION_SIZE; i++) {
 		getEntityFitness(&gen.population[i]);
 	}
+	/**
+	 * get rulette wheel
+	 * look to kindle book how should I pair them
+	 * add mutation ?
+	 * add permutation ?
+	 * replace few in the middle to perserve best in the gen
+	 */
+	
 	return gen;
 }
