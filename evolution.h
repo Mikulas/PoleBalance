@@ -35,8 +35,9 @@ Generation getRandomGeneration()
 
 Generation getNextGeneration(Generation gen)
 {
+
 	for (int i = 0; i < GENERATION_SIZE; i++) {
-		gen.population[i].fitness = getEntityFitness(gen.population[i]);
+		getEntityFitness(&gen.population[i]);
 	}
 	return gen;
 }

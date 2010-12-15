@@ -1,7 +1,7 @@
 TPoleBalance
 v7
 r0
-t314136820.961851
+t314138730.488651
 cCheck dependencies
 cCompileC build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o /Volumes/Data/Projects/PoleBalance/main.c normal x86_64 c com.apple.compilers.gcc.4_2
 cLd /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance normal x86_64
@@ -32,13 +32,13 @@ t1242688292
 s3198
 
 N/Volumes/Data/Projects/PoleBalance/Generation.h
-c000000004D0921720000000000000C0E
-t1292444018
-s3086
+c000000004D0928EA0000000000000EF9
+t1292445930
+s3833
 
 N/Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance
-t1292444020
-s16264
+t1292445930
+s16392
 
 N/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/PoleBalance.LinkFileList
 c000000004D08F5380000000000000070
@@ -46,8 +46,8 @@ t1292432696
 s112
 
 N/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o
-t1292444020
-s16840
+t1292445930
+s17036
 
 N/Volumes/Data/Projects/PoleBalance/config.h
 c000000004D090FE40000000000000280
@@ -55,14 +55,14 @@ t1292439524
 s640
 
 N/Volumes/Data/Projects/PoleBalance/evolution.h
-c000000004D09161C000000000000047D
-t1292441116
-s1149
+c000000004D0928D00000000000000463
+t1292445904
+s1123
 
 N/Volumes/Data/Projects/PoleBalance/main.c
-c000000004D090E430000000000000542
-t1292439107
-s1346
+c000000004D09289A00000000000003EE
+t1292445850
+s1006
 i<stdio.h>
 i<math.h>
 i<float.h>
@@ -83,11 +83,11 @@ s346
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies314136820#314136820#0(0"0(0#1#0"4300885448#0"0#
+lSLF07#2@18"Check dependencies314138730#314138730#0(0"0(0#1#0"4300885448#0"0#
 
 CCompileC build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o /Volumes/Data/Projects/PoleBalance/main.c normal x86_64 c com.apple.compilers.gcc.4_2
-s314136820.902980
-e314136820.949824
+s314138730.425792
+e314138730.476099
 r1
 xCompileC
 xbuild/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o
@@ -99,15 +99,15 @@ xcom.apple.compilers.gcc.4_2
 oIn file included from /Volumes/Data/Projects/PoleBalance/main.c:7:
 o/Volumes/Data/Projects/PoleBalance/math.h: In function 'getRandomSign':
 o/Volumes/Data/Projects/PoleBalance/math.h:49: warning: implicit declaration of function 'rand'
-lSLF07#2@49"Compile /Volumes/Data/Projects/PoleBalance/main.c314136820#314136820#0(234"In file included from /Volumes/Data/Projects/PoleBalance/main.c:7:/Volumes/Data/Projects/PoleBalance/math.h: In function 'getRandomSign':/Volumes/Data/Projects/PoleBalance/math.h:49: warning: implicit declaration of function 'rand'1(22@39"Implicit declaration of function 'rand'314136820#139#95#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314136820#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314131907#7#0#7#0#0"0(13@84"Implicit declaration of function 'rand' in /Volumes/Data/Projects/PoleBalance/math.h314136820#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/math.h314133636#49#0#49#0#0"0(6@41"/Volumes/Data/Projects/PoleBalance/math.h314133636#49#0#49#0#36"implicit declaration of function '*'0(0#0#41"/Volumes/Data/Projects/PoleBalance/main.c4300885448#1298"    cd /Volumes/Data/Projects/PoleBalance    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-generated-files.hmap -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-own-target-headers.hmap -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-all-target-headers.hmap -iquote /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-project-headers.hmap -F/Volumes/Data/Projects/PoleBalance/build/Debug -I/Volumes/Data/Projects/PoleBalance/build/Debug/include -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/DerivedSources/x86_64 -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/DerivedSources -c /Volumes/Data/Projects/PoleBalance/main.c -o /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o0#
+lSLF07#2@49"Compile /Volumes/Data/Projects/PoleBalance/main.c314138730#314138730#0(234"In file included from /Volumes/Data/Projects/PoleBalance/main.c:7:/Volumes/Data/Projects/PoleBalance/math.h: In function 'getRandomSign':/Volumes/Data/Projects/PoleBalance/math.h:49: warning: implicit declaration of function 'rand'1(22@39"Implicit declaration of function 'rand'314138730#139#95#2(7@63"In file included from /Volumes/Data/Projects/PoleBalance/main.c314138730#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/main.c314138650#7#0#7#0#0"0(13@84"Implicit declaration of function 'rand' in /Volumes/Data/Projects/PoleBalance/math.h314138730#18446744073709551615#0#0(6@41"/Volumes/Data/Projects/PoleBalance/math.h314133636#49#0#49#0#0"0(6@41"/Volumes/Data/Projects/PoleBalance/math.h314133636#49#0#49#0#36"implicit declaration of function '*'0(0#0#41"/Volumes/Data/Projects/PoleBalance/main.c4300885448#1298"    cd /Volumes/Data/Projects/PoleBalance    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-generated-files.hmap -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-own-target-headers.hmap -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-all-target-headers.hmap -iquote /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/PoleBalance-project-headers.hmap -F/Volumes/Data/Projects/PoleBalance/build/Debug -I/Volumes/Data/Projects/PoleBalance/build/Debug/include -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/DerivedSources/x86_64 -I/Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/DerivedSources -c /Volumes/Data/Projects/PoleBalance/main.c -o /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/main.o0#
 
 CLd /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance normal x86_64
-s314136820.949895
-e314136820.961814
+s314138730.476168
+e314138730.488613
 r1
 xLd
 x/Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance
 xnormal
 xx86_64
-lSLF07#2@63"Link /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance314136820#314136820#0(0"0(0#0#0"4300885448#494"    cd /Volumes/Data/Projects/PoleBalance    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Volumes/Data/Projects/PoleBalance/build/Debug -F/Volumes/Data/Projects/PoleBalance/build/Debug -filelist /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/PoleBalance.LinkFileList -mmacosx-version-min=10.6 -o /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance0#
+lSLF07#2@63"Link /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance314138730#314138730#0(0"0(0#0#0"4300885448#494"    cd /Volumes/Data/Projects/PoleBalance    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Volumes/Data/Projects/PoleBalance/build/Debug -F/Volumes/Data/Projects/PoleBalance/build/Debug -filelist /Volumes/Data/Projects/PoleBalance/build/PoleBalance.build/Debug/PoleBalance.build/Objects-normal/x86_64/PoleBalance.LinkFileList -mmacosx-version-min=10.6 -o /Volumes/Data/Projects/PoleBalance/build/Debug/PoleBalance0#
 

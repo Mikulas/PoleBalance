@@ -1,0 +1,7 @@
+In file included from /Volumes/Data/Projects/PoleBalance/main.c:7:
+/Volumes/Data/Projects/PoleBalance/math.h: In function 'getRandomSign':
+/Volumes/Data/Projects/PoleBalance/math.h:49: warning: implicit declaration of function 'rand'
+In file included from /Volumes/Data/Projects/PoleBalance/main.c:8:
+/Volumes/Data/Projects/PoleBalance/Generation.h: In function 'getEntityFitness':
+/Volumes/Data/Projects/PoleBalance/Generation.h:117: warning: implicit declaration of function 'exit'
+/Volumes/Data/Projects/PoleBalance/Generation.h:117: warning: incompatible implicit declaration of built-in function 'exit'

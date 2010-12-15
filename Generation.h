@@ -41,66 +41,84 @@ struct Generation
 };
 
 
-double getForceToApply(Entity e)
+double getForceToApply(Entity *e)
 {
-	return force * ((e.c_cart_position * e.cart_position + e.c_cart_velocity * e.cart_velocity + e.c_pole_angle * e.pole_angle + e.c_pole_velocity * e.pole_velocity) > 0 ? 1 : -1);
+	return force * ((e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1);
 }
 
-double getPoleAcceleration(Entity e)
+double getPoleAcceleration(Entity *e)
 {
-	return (g_acceleration * sin(e.pole_angle) + cos(e.pole_angle) * ((-e.force - pole_mass * pole_length * e.pole_velocity * e.pole_velocity * sin(e.pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e.pole_angle) * cos(e.pole_angle)) / (cart_mass + pole_mass)));
+	return (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
 }
 
-double getCartAcceleration(Entity e)
+double getCartAcceleration(Entity *e)
 {
-	return (e.force + pole_mass * pole_length * (e.pole_velocity * e.pole_velocity * sin(e.pole_angle) - e.pole_acceleration * cos(e.pole_angle))) / (cart_mass + pole_mass);
+	return (e->force + pole_mass * pole_length * (e->pole_velocity * e->pole_velocity * sin(e->pole_angle) - e->pole_acceleration * cos(e->pole_angle))) / (cart_mass + pole_mass);
 }
 
-double getCartPosition(Entity e)
+double getCartPosition(Entity *e)
 {
-	return e.cart_position + time_step * e.cart_velocity;
+	return e->cart_position + time_step * e->cart_velocity;
 }
 
-double getCartVelocity(Entity e)
+double getCartVelocity(Entity *e)
 {
-	return e.cart_velocity + time_step * e.cart_acceleration;
+	return e->cart_velocity + time_step * e->cart_acceleration;
 }
 
-double getPoleAngle(Entity e)
+double getPoleAngle(Entity *e)
 {
-	return mod(e.pole_angle + time_step * e.pole_velocity, 2 * M_PI);
+	return mod(e->pole_angle + time_step * e->pole_velocity, 2 * M_PI);
 }
 
-double getPoleVelocity(Entity e)
+double getPoleVelocity(Entity *e)
 {
-	return e.pole_velocity + time_step * e.pole_acceleration;
+	return e->pole_velocity + time_step * e->pole_acceleration;
+}
+
+
+void printEntity(Entity *e)
+{
+	printf("---\n");
+	printf("\tfailed: "); printf(e->failed == 1 ? "TRUE\n" : "FALSE\n");
+	printf("\tfitness: %f\n", e->fitness);
+	printf("\tc_cart_position: %f\n", e->c_cart_position);
+	printf("\tc_cart_velocity: %f\n", e->c_cart_velocity);
+	printf("\tc_pole_angle: %f\n", e->c_pole_angle);
+	printf("\tc_pole_velocity: %f\n", e->c_pole_velocity);
+	printf("\tpole_angle: %f\n", e->pole_angle);
+	printf("\tpole_velocity: %f\n", e->pole_velocity);
+	printf("\tpole_acceleration: %f\n", e->pole_acceleration);
+	printf("\tcart_position: %f\n", e->cart_position);
+	printf("\tcart_velocity: %f\n", e->cart_velocity);
+	printf("\tcart_acceleration: %f\n", e->cart_acceleration);
 }
 
 
 
-double getEntityFitness(Entity e)
+double getEntityFitness(Entity *e)
 {
-	//printf("fitness was %f\n", e.fitness);
-	if (e.fitness == 0) {
+	if (e->fitness == 0) {
 		for (double t = 0; t < time; t += time_step) {
-			e.force = getForceToApply(e);
-			e.cart_acceleration = getCartAcceleration(e);
-			e.pole_acceleration = getPoleAcceleration(e);
-			e.pole_velocity = getPoleVelocity(e);
-			e.cart_velocity = getCartVelocity(e);
-			e.pole_angle = getPoleAngle(e);
-			e.cart_position = getCartPosition(e);
+			e->force = getForceToApply(e);
+			e->cart_acceleration = getCartAcceleration(e);
+			e->pole_acceleration = getPoleAcceleration(e);
+			e->pole_velocity = getPoleVelocity(e);
+			e->cart_velocity = getCartVelocity(e);
+			e->pole_angle = getPoleAngle(e);
+			e->cart_position = getCartPosition(e);
 		
-			if (e.cart_position * sgn(e.cart_position) >= fail_position) {
-				e.failed = 1;
+			//printEntity(e);
+			if (e->cart_position * sgn(e->cart_position) >= fail_position) {
+				e->failed = 1;
 				break;
 			}
 		}
 		/** @todo fixme */
-		return -e.failed * (cube(e.pole_angle) * square(e.pole_velocity) * e.pole_acceleration + cube(e.cart_position) * square(e.cart_velocity) * e.cart_acceleration) + power(e.cart_position, 4);
+		e->fitness = -e->failed * (cube(e->pole_angle) * square(e->pole_velocity) * e->pole_acceleration + cube(e->cart_position) * square(e->cart_velocity) * e->cart_acceleration) + power(e->cart_position, 4);
 	}
 	
-	return e.fitness;
+	return e->fitness;
 }
 
 
@@ -111,10 +129,10 @@ Entity getBestEntity(Generation gen)
 	
 	for (int i = 0; i < GENERATION_SIZE; i++) {
 		// gen.population[i].fitness = getEntityFitness(gen.population[i]);
-		printf("fitness = %f\n", gen.population[i].fitness);
 		if (gen.population[i].fitness > best_fitness) {
 			index = i;
 			best_fitness = gen.population[i].fitness;
+			printEntity(&gen.population[i]);
 		}
 	}
 	

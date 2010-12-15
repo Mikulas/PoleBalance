@@ -40,6 +40,10 @@
 			3050B11012B958170063AFA1 /* PBXTextBookmark */ = 3050B11012B958170063AFA1 /* PBXTextBookmark */;
 			3050B12212B959140063AFA1 /* PBXTextBookmark */ = 3050B12212B959140063AFA1 /* PBXTextBookmark */;
 			3050B12D12B95A2B0063AFA1 /* PBXTextBookmark */ = 3050B12D12B95A2B0063AFA1 /* PBXTextBookmark */;
+			3050B19312B960740063AFA1 /* PBXTextBookmark */ = 3050B19312B960740063AFA1 /* PBXTextBookmark */;
+			3050B19412B960740063AFA1 /* PBXTextBookmark */ = 3050B19412B960740063AFA1 /* PBXTextBookmark */;
+			3050B19512B960740063AFA1 /* PBXTextBookmark */ = 3050B19512B960740063AFA1 /* PBXTextBookmark */;
+			3050B19612B960740063AFA1 /* PBXTextBookmark */ = 3050B19612B960740063AFA1 /* PBXTextBookmark */;
 			30543DA112B944B00076F6A8 = 30543DA112B944B00076F6A8 /* PBXTextBookmark */;
 			30543E1812B94AD80076F6A8 = 30543E1812B94AD80076F6A8 /* PBXTextBookmark */;
 			30543E1912B94AD80076F6A8 = 30543E1912B94AD80076F6A8 /* PBXTextBookmark */;
@@ -54,9 +58,9 @@
 	};
 	08FB7796FE84155DC02AAC07 /* main.c */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 702}}";
-			sepNavSelRange = "{509, 0}";
-			sepNavVisRange = "{58, 1282}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 650}}";
+			sepNavSelRange = "{858, 0}";
+			sepNavVisRange = "{0, 1000}";
 			sepNavWindowFrame = "{{1935, 56}, {1126, 1024}}";
 		};
 	};
@@ -65,7 +69,7 @@
 		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
 		name = "Generation.h: 100";
 		rLen = 0;
-		rLoc = 2433;
+		rLoc = 808;
 		rType = 0;
 		vrLen = 1241;
 		vrLoc = 1706;
@@ -75,7 +79,7 @@
 		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
 		name = "Generation.h: 99";
 		rLen = 0;
-		rLoc = 2474;
+		rLoc = 808;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 1808;
@@ -85,10 +89,50 @@
 		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
 		name = "Generation.h: 99";
 		rLen = 0;
-		rLoc = 2474;
+		rLoc = 808;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 1844;
+	};
+	3050B19312B960740063AFA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 08FB7796FE84155DC02AAC07 /* main.c */;
+		name = "main.c: 37";
+		rLen = 0;
+		rLoc = 858;
+		rType = 0;
+		vrLen = 1000;
+		vrLoc = 0;
+	};
+	3050B19412B960740063AFA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 30543D7A12B93F280076F6A8 /* evolution.h */;
+		name = "evolution.h: 39";
+		rLen = 0;
+		rLoc = 1064;
+		rType = 0;
+		vrLen = 1123;
+		vrLoc = 0;
+	};
+	3050B19512B960740063AFA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
+		name = "Generation.h: 136";
+		rLen = 0;
+		rLoc = 3770;
+		rType = 0;
+		vrLen = 1018;
+		vrLoc = 0;
+	};
+	3050B19612B960740063AFA1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
+		name = "Generation.h: 114";
+		rLen = 0;
+		rLoc = 3174;
+		rType = 0;
+		vrLen = 1580;
+		vrLoc = 2214;
 	};
 	30543CB112B920510076F6A8 /* PoleBalance */ = {
 		isa = PBXExecutable;
@@ -152,17 +196,17 @@
 	};
 	30543D4012B92FA60076F6A8 /* Generation.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2077, 1612}}";
-			sepNavSelRange = "{2474, 0}";
-			sepNavVisRange = "{1844, 1263}";
+			sepNavIntBoundsRect = "{{0, 0}, {2133, 1781}}";
+			sepNavSelRange = "{3174, 0}";
+			sepNavVisRange = "{2214, 1580}";
 			sepNavWindowFrame = "{{1935, 56}, {1126, 1024}}";
 		};
 	};
 	30543D7A12B93F280076F6A8 /* evolution.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1651, 630}}";
-			sepNavSelRange = "{1130, 0}";
-			sepNavVisRange = "{0, 1149}";
+			sepNavIntBoundsRect = "{{0, 0}, {1651, 649}}";
+			sepNavSelRange = "{1064, 0}";
+			sepNavVisRange = "{0, 1123}";
 		};
 	};
 	30543DA112B944B00076F6A8 /* PBXTextBookmark */ = {
@@ -217,7 +261,7 @@
 		fRef = 30543D7A12B93F280076F6A8 /* evolution.h */;
 		name = "evolution.h: 39";
 		rLen = 0;
-		rLoc = 1130;
+		rLoc = 1104;
 		rType = 0;
 		vrLen = 1149;
 		vrLoc = 0;
@@ -227,7 +271,7 @@
 		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
 		name = "Generation.h: 116";
 		rLen = 0;
-		rLoc = 2925;
+		rLoc = 3644;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 1905;
@@ -237,7 +281,7 @@
 		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
 		name = "Generation.h: 100";
 		rLen = 0;
-		rLoc = 2433;
+		rLoc = 808;
 		rType = 0;
 		vrLen = 1243;
 		vrLoc = 1704;

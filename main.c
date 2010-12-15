@@ -30,8 +30,9 @@ int main (int argc, const char * argv[])
 	 */
 	
 	printf("Hello, World!\n");
-	
+
 	Generation g = getRandomGeneration();
+
 	for (int i = 0; i < GENERATION_COUNT; i++) {
 		g = getNextGeneration(g);
 	}
@@ -39,12 +40,7 @@ int main (int argc, const char * argv[])
 	Entity solution = getBestEntity(g);
 
 	printf("best solution:\n");
-	printf("\tfailed: "); printf(solution.failed == -1 ? "TRUE\n" : "FALSE\n");
-	printf("\tfitness: %f\n", solution.fitness);
-	printf("\tc_cart_position: %f\n", solution.c_cart_position);
-	printf("\tc_cart_velocity: %f\n", solution.c_cart_velocity);
-	printf("\tc_pole_angle: %f\n", solution.c_pole_angle);
-	printf("\tc_pole_velocity: %f\n", solution.c_pole_velocity);
+	printEntity(&solution);
 	
 	getchar();
 	getchar();
