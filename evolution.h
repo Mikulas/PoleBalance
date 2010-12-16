@@ -24,21 +24,37 @@ Generation getRandomGeneration()
 		gen.population[i].pole_velocity = 0;
 		gen.population[i].pole_acceleration = 0;
 		
-		gen.population[i].failed = -1;
+		gen.population[i].failed = 0;
 		gen.population[i].force = 0;
 		gen.population[i].fitness = 0;
 	}
+	
+	gen.fitness_sum = 0;
+	
 	return gen;
 }
 
 
-
-Generation getNextGeneration(Generation gen)
+double getEntityOccurenceChance(Generation *gen, Entity *e)
 {
+	return getEntityFitness(e) / getGenerationFitnessSum(gen);
+}
+
+
+
+Generation getNextGeneration(Generation *gen)
+{
+	for (int i = 0; i < GENERATION_SIZE; i++) {
+		getEntityOccurenceChance(gen, &gen->population[i]);
+		//y(&gen.population[i]);
+	}
 	Generation nextGen;
 	
+	
 	for (int i = 0; i < GENERATION_SIZE; i++) {
-		getEntityFitness(&gen.population[i]);
+		gen->population[i].fitness = getEntityFitness(&gen->population[i]);
+		nextGen.population[i] = gen->population[i];
+		nextGen.population[i].fitness = 0;
 	}
 	/**
 	 * get rulette wheel
@@ -48,5 +64,5 @@ Generation getNextGeneration(Generation gen)
 	 * replace few in the middle to perserve best in the gen
 	 */
 	
-	return gen;
+	return nextGen;
 }

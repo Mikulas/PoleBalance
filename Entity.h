@@ -62,7 +62,7 @@ double getEntityFitness(Entity *e)
 			e->pole_acceleration = (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
 			e->pole_velocity = e->pole_velocity + time_step * e->pole_acceleration;
 			e->cart_velocity = e->cart_velocity + time_step * e->cart_acceleration;
-			e->pole_angle = mod(e->pole_angle + time_step * e->pole_velocity, 2 * M_PI);
+			e->pole_angle = e->pole_angle + time_step * e->pole_velocity;
 			e->cart_position = e->cart_position + time_step * e->cart_velocity;
 			
 			//printEntity(e);
@@ -71,8 +71,18 @@ double getEntityFitness(Entity *e)
 				break;
 			}
 		}
-		/** @todo fixme */
-		e->fitness = -e->failed * abs(10 * e->pole_angle + 2 *e->pole_velocity * e->pole_acceleration + 0.2 * e->cart_position + 0.1 * e->cart_velocity + 0.05 * e->cart_acceleration);
+		
+		/**
+		 * abs(): direction does not matter
+		 * mod(): base value of angle
+		 * 
+		 */
+		e->pole_angle = mod(abs(e->pole_angle), 2 * M_PI);
+		if (e->pole_angle > M_PI) {
+			e->pole_angle = 2 * M_PI - e->pole_angle;
+		}
+		
+		e->fitness = abs(10 * (2 * M_PI - e->pole_angle)) + abs(3 * e->pole_velocity) + abs(e->pole_acceleration) + 10 * (fail_position - abs(e->cart_position)) + abs(3 * e->cart_velocity) + abs(e->cart_acceleration);
 	}
 	
 	return e->fitness;

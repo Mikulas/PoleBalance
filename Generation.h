@@ -12,22 +12,37 @@ typedef struct Generation Generation;
 struct Generation
 {	
 	Entity population[GENERATION_SIZE];
+	double fitness_sum;
 };
 
 
 
-Entity getBestEntity(Generation gen)
+double getGenerationFitnessSum(Generation *gen)
 {
-	double best_fitness = -DBL_MAX;
+	double sum = 0;
+	if (gen->fitness_sum == 0) {
+		for (int i = 0; i < GENERATION_SIZE; i++) {
+			sum += getEntityFitness(&gen->population[i]);
+		}
+		gen->fitness_sum = sum;
+	}
+	
+	return gen->fitness_sum;
+}
+
+
+
+Entity getBestEntity(Generation *gen)
+{
+	double best_fitness = DBL_MIN;
 	int index = -1;
 	
 	for (int i = 0; i < GENERATION_SIZE; i++) {
-		// gen.population[i].fitness = getEntityFitness(gen.population[i]);
-		if (gen.population[i].fitness > best_fitness) {
+		if (getEntityFitness(&gen->population[i]) > best_fitness) {
 			index = i;
-			best_fitness = gen.population[i].fitness;
+			best_fitness = getEntityFitness(&gen->population[i]);
 		}
 	}
 	
-	return gen.population[index];
+	return gen->population[index];
 }

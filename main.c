@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <limits.h>
 #include <float.h>
 
 #include "config.h"
@@ -30,21 +31,18 @@ int main (int argc, const char * argv[])
 	 * The motor torque limit is not encountered
 	 */
 	
-	printf("Pole Balance!\n");
+	printf("Pole Balance\n");
 
 	Generation g = getRandomGeneration();
 
 	for (int i = 0; i < GENERATION_COUNT; i++) {
-		g = getNextGeneration(g);
+		g = getNextGeneration(&g);
 	}
 	
-	Entity solution = getBestEntity(g);
+	Entity solution = getBestEntity(&g);
 
 	printf("best solution:\n");
 	printEntity(&solution);
-	
-	getchar();
-	getchar();
 	
     return 0;
 }
