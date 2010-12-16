@@ -41,42 +41,6 @@ struct Generation
 };
 
 
-double getForceToApply(Entity *e)
-{
-	return force * ((e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1);
-}
-
-double getPoleAcceleration(Entity *e)
-{
-	return (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
-}
-
-double getCartAcceleration(Entity *e)
-{
-	return (e->force + pole_mass * pole_length * (e->pole_velocity * e->pole_velocity * sin(e->pole_angle) - e->pole_acceleration * cos(e->pole_angle))) / (cart_mass + pole_mass);
-}
-
-double getCartPosition(Entity *e)
-{
-	return e->cart_position + time_step * e->cart_velocity;
-}
-
-double getCartVelocity(Entity *e)
-{
-	return e->cart_velocity + time_step * e->cart_acceleration;
-}
-
-double getPoleAngle(Entity *e)
-{
-	return mod(e->pole_angle + time_step * e->pole_velocity, 2 * M_PI);
-}
-
-double getPoleVelocity(Entity *e)
-{
-	return e->pole_velocity + time_step * e->pole_acceleration;
-}
-
-
 void printEntity(Entity *e)
 {
 	printf("---\n");
@@ -100,13 +64,13 @@ double getEntityFitness(Entity *e)
 {
 	if (e->fitness == 0) {
 		for (double t = 0; t < time; t += time_step) {
-			e->force = getForceToApply(e);
-			e->cart_acceleration = getCartAcceleration(e);
-			e->pole_acceleration = getPoleAcceleration(e);
-			e->pole_velocity = getPoleVelocity(e);
-			e->cart_velocity = getCartVelocity(e);
-			e->pole_angle = getPoleAngle(e);
-			e->cart_position = getCartPosition(e);
+			e->force = force * ((e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1);
+			e->cart_acceleration = (e->force + pole_mass * pole_length * (e->pole_velocity * e->pole_velocity * sin(e->pole_angle) - e->pole_acceleration * cos(e->pole_angle))) / (cart_mass + pole_mass);
+			e->pole_acceleration = (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
+			e->pole_velocity = e->pole_velocity + time_step * e->pole_acceleration;
+			e->cart_velocity = e->cart_velocity + time_step * e->cart_acceleration;
+			e->pole_angle = mod(e->pole_angle + time_step * e->pole_velocity, 2 * M_PI);
+			e->cart_position = e->cart_position + time_step * e->cart_velocity;
 		
 			//printEntity(e);
 			if (e->cart_position * sgn(e->cart_position) >= fail_position) {
