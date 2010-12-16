@@ -5,6 +5,7 @@
 
 #include "config.h"
 #include "math.h"
+#include "Entity.h"
 #include "Generation.h"
 #include "evolution.h"
 
@@ -29,7 +30,7 @@ int main (int argc, const char * argv[])
 	 * The motor torque limit is not encountered
 	 */
 	
-	printf("Hello, World!\n");
+	printf("Pole Balance!\n");
 
 	Generation g = getRandomGeneration();
 

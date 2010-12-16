@@ -7,7 +7,6 @@
  *
  */
 
-
 Generation getRandomGeneration()
 {
 	Generation gen;
@@ -31,6 +30,7 @@ Generation getRandomGeneration()
 	}
 	return gen;
 }
+
 
 
 Generation getNextGeneration(Generation gen)

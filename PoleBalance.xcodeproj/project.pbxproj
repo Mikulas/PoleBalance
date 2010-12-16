@@ -30,6 +30,7 @@
 		30543CDC12B92C8A0076F6A8 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
 		30543D4012B92FA60076F6A8 /* Generation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generation.h; sourceTree = "<group>"; };
 		30543D7A12B93F280076F6A8 /* evolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evolution.h; sourceTree = "<group>"; };
+		308417E412BA5E4B005843F7 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* PoleBalance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PoleBalance; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* PoleBalance.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PoleBalance.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +64,7 @@
 				30543CDC12B92C8A0076F6A8 /* math.h */,
 				30543D4012B92FA60076F6A8 /* Generation.h */,
 				30543D7A12B93F280076F6A8 /* evolution.h */,
+				308417E412BA5E4B005843F7 /* Entity.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";

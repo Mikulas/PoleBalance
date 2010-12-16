@@ -82,7 +82,7 @@
 		fRef = 30543D4012B92FA60076F6A8 /* Generation.h */;
 		name = "Generation.h: 131";
 		rLen = 0;
-		rLoc = 3606;
+		rLoc = 3137;
 		rType = 0;
 		vrLen = 1299;
 		vrLoc = 2478;
@@ -169,9 +169,9 @@
 	};
 	30543D4012B92FA60076F6A8 /* Generation.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2133, 1768}}";
-			sepNavSelRange = "{3624, 0}";
-			sepNavVisRange = "{2478, 1299}";
+			sepNavIntBoundsRect = "{{0, 0}, {2301, 1365}}";
+			sepNavSelRange = "{2927, 0}";
+			sepNavVisRange = "{0, 1023}";
 			sepNavWindowFrame = "{{1935, 56}, {1126, 1024}}";
 		};
 	};

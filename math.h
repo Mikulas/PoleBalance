@@ -7,7 +7,6 @@
  *
  */
 
-
 int sgn(double value)
 {
 	if (value == 0) {
@@ -18,10 +17,12 @@ int sgn(double value)
 }
 
 
+
 double abs(double value)
 {
 	return value * sgn(value);
 }
+
 
 
 double power(double base, int power)
@@ -53,6 +54,7 @@ int getRandomSign()
 {
 	return (rand() % 100) > 50 ? 1 : -1;
 }
+
 
 
 double mod(double value, double divider)
