@@ -35,7 +35,9 @@ int main (int argc, const char * argv[])
 
 	Generation g = getRandomGeneration();
 
+	printf("\n");
 	for (int i = 0; i < GENERATION_COUNT; i++) {
+		printf("generating %d out of %d\n", i + 1, GENERATION_COUNT);
 		g = getNextGeneration(&g);
 	}
 	

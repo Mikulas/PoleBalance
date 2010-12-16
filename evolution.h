@@ -55,10 +55,10 @@ Entity getMerge(Entity *e, Entity *f)
 {
 	Entity merge = getNewEntity();
 	
-	merge.c_cart_position = e->c_cart_position;
-	merge.c_cart_velocity = e->c_cart_velocity;
-	merge.c_pole_angle = f->c_pole_angle;
-	merge.c_pole_velocity = f->c_pole_velocity;
+	merge.c_cart_position = (e->c_cart_position + f->c_cart_position) / 2;
+	merge.c_cart_velocity = (e->c_cart_velocity + f->c_cart_velocity) / 2;
+	merge.c_pole_angle = (e->c_pole_angle + f->c_pole_angle) / 2;
+	merge.c_pole_velocity = (e->c_pole_velocity + f->c_pole_velocity) / 2;
 	
 	return merge;
 }
