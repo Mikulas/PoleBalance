@@ -30,7 +30,31 @@ struct Entity
 	int failed;
 	
 	double fitness;
+	double limit_min;
+	double limit_max;
 };
+
+
+
+Entity getNewEntity()
+{
+	Entity e;
+	e.cart_position = 0; // (getRandomSign() * (rand() % fail_position));
+	e.cart_velocity = 0;
+	e.cart_acceleration = 0;
+	
+	e.pole_angle = mod(getRandomSign() * (double) rand() / 10e7, 2 * M_PI);
+	e.pole_velocity = 0;
+	e.pole_acceleration = 0;
+	
+	e.failed = 0;
+	e.force = 0;
+	
+	e.fitness = 0;
+	e.limit_min = -1;
+	e.limit_max = -1;
+	return e;
+}
 
 
 

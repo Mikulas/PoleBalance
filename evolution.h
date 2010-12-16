@@ -11,28 +11,18 @@ Generation getRandomGeneration()
 {
 	Generation gen;
 	for (int i = 0; i < GENERATION_SIZE; i++) {
+		gen.population[i] = getNewEntity();
 		gen.population[i].c_cart_position = getRandomSign() * rand() % 100;
 		gen.population[i].c_cart_velocity = getRandomSign() * rand() % 100;
 		gen.population[i].c_pole_angle = getRandomSign() * rand() % 100;
-		gen.population[i].c_pole_velocity = getRandomSign() * rand() % 100;
-
-		gen.population[i].cart_position = 0; // (getRandomSign() * (rand() % fail_position));
-		gen.population[i].cart_velocity = 0;
-		gen.population[i].cart_acceleration = 0;
-
-		gen.population[i].pole_angle = mod(getRandomSign() * (double) rand() / 10e7, 2 * M_PI);
-		gen.population[i].pole_velocity = 0;
-		gen.population[i].pole_acceleration = 0;
-		
-		gen.population[i].failed = 0;
-		gen.population[i].force = 0;
-		gen.population[i].fitness = 0;
+		gen.population[i].c_pole_velocity = getRandomSign() * rand() % 100;		
 	}
 	
 	gen.fitness_sum = 0;
 	
 	return gen;
 }
+
 
 
 double getEntityOccurenceChance(Generation *gen, Entity *e)
@@ -42,19 +32,49 @@ double getEntityOccurenceChance(Generation *gen, Entity *e)
 
 
 
+Entity getWeightedEntity(Generation *gen)
+{
+	/** roulette wheel method */
+	double limit_min = 0;
+	for (int i = 0; i < GENERATION_SIZE; i++) {
+		gen->population[i].limit_min = limit_min;
+		gen->population[i].limit_max = limit_min + getEntityOccurenceChance(gen, &gen->population[i]);
+		limit_min = gen->population[i].limit_max;
+	}
+	double roll = mod((double) rand() / 10e8, 1);
+	for (int i = 0; i < GENERATION_SIZE; i++) {
+		if (roll >= gen->population[i].limit_min && roll < gen->population[i].limit_max) {
+			return gen->population[i]; 
+		}
+	}
+}
+
+
+
+Entity getMerge(Entity *e, Entity *f)
+{
+	Entity merge = getNewEntity();
+	
+	merge.c_cart_position = e->c_cart_position;
+	merge.c_cart_velocity = e->c_cart_velocity;
+	merge.c_pole_angle = f->c_pole_angle;
+	merge.c_pole_velocity = f->c_pole_velocity;
+	
+	return merge;
+}
+
+
+
 Generation getNextGeneration(Generation *gen)
 {
-	for (int i = 0; i < GENERATION_SIZE; i++) {
-		getEntityOccurenceChance(gen, &gen->population[i]);
-		//y(&gen.population[i]);
-	}
 	Generation nextGen;
 	
-	
-	for (int i = 0; i < GENERATION_SIZE; i++) {
-		gen->population[i].fitness = getEntityFitness(&gen->population[i]);
-		nextGen.population[i] = gen->population[i];
-		nextGen.population[i].fitness = 0;
+	for (int i = 0; i < GENERATION_SIZE; i += 2) {
+		Entity e = getWeightedEntity(gen);
+		Entity f = getWeightedEntity(gen);
+		
+		nextGen.population[i] = getMerge(&e, &f);
+		nextGen.population[i + 1] = getMerge(&f, &e);
 	}
 	/**
 	 * get rulette wheel
