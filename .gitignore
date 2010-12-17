@@ -2,6 +2,7 @@
 *.swp
 *~.nib
 build/
+html/
 *.pbxuser
 *.perspective
 *.perspectivev3

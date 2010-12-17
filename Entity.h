@@ -16,6 +16,7 @@ struct Entity
 	double cart_acceleration; // [meters/second/second]
 	
 	double pole_angle; // [radians] relative from top
+	double pole_angle_origin; // [radians]
 	double pole_velocity; // [radians/second]
 	double pole_acceleration; // [radians/second/second]
 	
@@ -43,7 +44,7 @@ Entity getNewEntity()
 	e.cart_velocity = 0;
 	e.cart_acceleration = 0;
 	
-	e.pole_angle = mod(getRandomSign() * (double) rand() / 10e7, 2 * M_PI);
+	e.pole_angle = e.pole_angle_origin = mod(getRandomSign() * (double) rand() / 10e7, 2 * M_PI);
 	e.pole_velocity = 0;
 	e.pole_acceleration = 0;
 	
@@ -110,4 +111,47 @@ double getEntityFitness(Entity *e)
 	}
 	
 	return e->fitness;
+}
+
+
+
+void writeEntity(Entity *f, int generation)
+{
+	Entity r = getNewEntity();
+	Entity *e = &r;
+	e->pole_angle = f->pole_angle_origin;
+	e->c_cart_position = f->c_cart_position;
+	e->c_cart_velocity = f->c_cart_velocity;
+	e->c_pole_angle = f->c_pole_angle;
+	e->c_pole_velocity = f->c_pole_velocity;
+	e->fitness = getEntityFitness(f);
+	
+	FILE *stream;
+	
+	stream = fopen("header.dat", "wt");
+	fprintf(stream, "generation fitness k l m n time_step fail_position\n");
+	fprintf(stream, "%d %f %f %f %f %f %f %f\n", generation, getEntityFitness(e), e->c_cart_position, e->c_cart_velocity, e->c_pole_angle, e->c_pole_velocity, time_step, fail_position);
+	fclose(stream);
+	
+	stream = fopen("movement.dat", "wt");
+	fprintf(stream, "cart_position pole_angle\n");
+	for (double t = 0; t < time; t += time_step) {
+		
+		/** @todo fixme this is just copy and paste of getFitness and it's really evil */
+		e->force = force * ((e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1);
+		e->cart_acceleration = (e->force + pole_mass * pole_length * (e->pole_velocity * e->pole_velocity * sin(e->pole_angle) - e->pole_acceleration * cos(e->pole_angle))) / (cart_mass + pole_mass);
+		e->pole_acceleration = (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
+		e->pole_velocity = e->pole_velocity + time_step * e->pole_acceleration;
+		e->cart_velocity = e->cart_velocity + time_step * e->cart_acceleration;
+		e->pole_angle = e->pole_angle + time_step * e->pole_velocity;
+		e->cart_position = e->cart_position + time_step * e->cart_velocity;
+		
+		fprintf(stream, "%f %f\n", e->cart_position, e->pole_angle);
+		//printEntity(e);
+		if (e->cart_position * sgn(e->cart_position) >= fail_position) {
+			e->failed = 1;
+			break;
+		}
+	}
+	fclose(stream);
 }
