@@ -7,8 +7,8 @@
  *
  */
 
-#define GENERATION_SIZE 60
-#define GENERATION_COUNT 200
+#define GENERATION_SIZE 500
+#define GENERATION_COUNT 5000
 
 
 const double fail_position = 2.4; // [meters]
@@ -23,4 +23,4 @@ const double pole_mass = 0.1; // [kilograms]
 const double cart_mass = 1; // [kilograms]
 
 const double time = 20; // [seconds]
-const double time_step = 0.02; // [seconds]
+const double time_step = 0.025; // [seconds]

@@ -19,7 +19,7 @@ axis ([(-fail_position - cart_width / 2) (fail_position + cart_width / 2) -2 2])
 
 [cart_position, pole_angle] = textread('./build/Debug/movement.dat', '%f %f', 'headerlines', 1);
 
-Frames = moviein(length(cart_position));
+%Frames = moviein(length(cart_position));
 
 hold on
 
@@ -27,13 +27,14 @@ cart = rectangle();
 pole = line([0 0], [1 1], 'color', [.4 .7 .3], 'lineWidth', 2);
 
 for j = 1:length(cart_position)
+    pole_angle(j) = pole_angle(j) + pi / 2;
     set(cart,'Position', [(cart_position(j) - cart_width / 2), 0, cart_width, cart_height]);
     set(pole,'XData', [cart_position(j), (cart_position(j) + cos(pole_angle(j)))]);
     set(pole,'YData', [(cart_height / 2), ((cart_height / 2) + sin(pole_angle(j)))]);
     refreshdata;
     drawnow;
-    Frames(:, j) = getframe;
+    %Frames(:, j) = getframe;
 end
 
-movie(Frames, 1, fps);
-%mpgwrite(Frames,colormap,'render.mpg');
+%movie(Frames, 1, fps);
+%mpgwrite(Frames, colormap, 'render.mpg');

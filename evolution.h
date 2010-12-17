@@ -12,10 +12,10 @@ Generation getRandomGeneration()
 	Generation gen;
 	for (int i = 0; i < GENERATION_SIZE; i++) {
 		gen.population[i] = getNewEntity();
-		gen.population[i].c_cart_position = getRandomSign() * rand() % 100;
-		gen.population[i].c_cart_velocity = getRandomSign() * rand() % 100;
-		gen.population[i].c_pole_angle = getRandomSign() * rand() % 100;
-		gen.population[i].c_pole_velocity = getRandomSign() * rand() % 100;		
+		gen.population[i].c_cart_position = getRandomSign() * mod(rand() / 10e6, 100);
+		gen.population[i].c_cart_velocity = getRandomSign() * mod(rand() / 10e6, 100);
+		gen.population[i].c_pole_angle = getRandomSign() * mod(rand() / 10e6, 100);
+		gen.population[i].c_pole_velocity = getRandomSign() * mod(rand() / 10e6, 100);		
 	}
 	
 	gen.fitness_sum = 0;
@@ -51,14 +51,25 @@ Entity getWeightedEntity(Generation *gen)
 
 
 
-Entity getMerge(Entity *e, Entity *f)
+double getMerge(double e, double f)
+{
+	double merge;
+	
+	merge = e + getRandomSign() * mod(rand(), 300);
+		
+	return merge;
+}
+
+
+
+Entity getEntityMerge(Entity *e, Entity *f)
 {
 	Entity merge = getNewEntity();
 	
-	merge.c_cart_position = (e->c_cart_position + f->c_cart_position) / 2;
-	merge.c_cart_velocity = (e->c_cart_velocity + f->c_cart_velocity) / 2;
-	merge.c_pole_angle = (e->c_pole_angle + f->c_pole_angle) / 2;
-	merge.c_pole_velocity = (e->c_pole_velocity + f->c_pole_velocity) / 2;
+	merge.c_cart_position = getMerge(e->c_cart_position, f->c_cart_position);
+	merge.c_cart_velocity = getMerge(e->c_cart_velocity, f->c_cart_velocity);
+	merge.c_pole_angle = getMerge(e->c_pole_angle, f->c_pole_angle);
+	merge.c_pole_velocity = getMerge(e->c_pole_velocity, f->c_pole_velocity);
 	
 	return merge;
 }
@@ -73,8 +84,8 @@ Generation getNextGeneration(Generation *gen)
 		Entity e = getWeightedEntity(gen);
 		Entity f = getWeightedEntity(gen);
 		
-		nextGen.population[i] = getMerge(&e, &f);
-		nextGen.population[i + 1] = getMerge(&f, &e);
+		nextGen.population[i] = getEntityMerge(&e, &f);
+		nextGen.population[i + 1] = getEntityMerge(&f, &e);
 	}
 	/**
 	 * get rulette wheel

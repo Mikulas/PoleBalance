@@ -40,6 +40,8 @@ struct Entity
 Entity getNewEntity()
 {
 	Entity e;
+	e.c_cart_position = e.c_cart_velocity = e.c_pole_angle = e.c_pole_velocity = 0;
+	
 	e.cart_position = 0; // (getRandomSign() * (rand() % fail_position));
 	e.cart_velocity = 0;
 	e.cart_acceleration = 0;
@@ -69,6 +71,7 @@ void printEntity(Entity *e)
 	printf("\tc_pole_angle: %f\n", e->c_pole_angle);
 	printf("\tc_pole_velocity: %f\n", e->c_pole_velocity);
 	printf("\tpole_angle: %f\n", e->pole_angle);
+	printf("\tpole_angle_origin: %f\n", e->pole_angle_origin);
 	printf("\tpole_velocity: %f\n", e->pole_velocity);
 	printf("\tpole_acceleration: %f\n", e->pole_acceleration);
 	printf("\tcart_position: %f\n", e->cart_position);
@@ -84,7 +87,7 @@ double getEntityFitness(Entity *e)
 		for (double t = 0; t < time; t += time_step) {
 			e->force = force * ((e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1);
 			e->cart_acceleration = (e->force + pole_mass * pole_length * (e->pole_velocity * e->pole_velocity * sin(e->pole_angle) - e->pole_acceleration * cos(e->pole_angle))) / (cart_mass + pole_mass);
-			e->pole_acceleration = (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
+			e->pole_acceleration = (-g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * e->pole_velocity * e->pole_velocity * sin(e->pole_angle) / (cart_mass + pole_mass)))) / (pole_length * (4/3 - (pole_mass * cos(e->pole_angle) * cos(e->pole_angle)) / (cart_mass + pole_mass)));
 			e->pole_velocity = e->pole_velocity + time_step * e->pole_acceleration;
 			e->cart_velocity = e->cart_velocity + time_step * e->cart_acceleration;
 			e->pole_angle = e->pole_angle + time_step * e->pole_velocity;
@@ -100,14 +103,13 @@ double getEntityFitness(Entity *e)
 		/**
 		 * abs(): direction does not matter
 		 * mod(): base value of angle
-		 * 
 		 */
 		e->pole_angle = mod(abs(e->pole_angle), 2 * M_PI);
 		if (e->pole_angle > M_PI) {
 			e->pole_angle = 2 * M_PI - e->pole_angle;
 		}
 		
-		e->fitness = abs(10 * (2 * M_PI - e->pole_angle)) + abs(3 * e->pole_velocity) + abs(e->pole_acceleration) + 10 * (fail_position - abs(e->cart_position)) + abs(3 * e->cart_velocity) + abs(e->cart_acceleration);
+		e->fitness = abs(10 * (M_PI - e->pole_angle)) - abs(0.1 * e->pole_velocity) + 20 * (fail_position - abs(e->cart_position)) - abs(0.1 * e->cart_velocity);
 	}
 	
 	return e->fitness;
@@ -117,14 +119,12 @@ double getEntityFitness(Entity *e)
 
 void writeEntity(Entity *f, int generation)
 {
-	Entity r = getNewEntity();
-	Entity *e = &r;
-	e->pole_angle = f->pole_angle_origin;
-	e->c_cart_position = f->c_cart_position;
-	e->c_cart_velocity = f->c_cart_velocity;
-	e->c_pole_angle = f->c_pole_angle;
-	e->c_pole_velocity = f->c_pole_velocity;
-	e->fitness = getEntityFitness(f);
+	Entity* e = f;
+	e->pole_velocity = 0;
+	e->pole_acceleration = 0;
+	e->cart_position = 0;
+	e->cart_velocity = 0;
+	e->cart_acceleration = 0;
 	
 	FILE *stream;
 	
