@@ -7,8 +7,8 @@
  *
  */
 
-#define GENERATION_SIZE 500
-#define GENERATION_COUNT 5000
+#define GENERATION_SIZE 100
+#define GENERATION_COUNT 100
 
 
 const double fail_position = 2.4; // [meters]

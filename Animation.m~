@@ -25,16 +25,14 @@ hold on
 
 cart = rectangle();
 pole = line([0 0], [1 1], 'color', [.4 .7 .3], 'lineWidth', 2);
-label = text(-2, -2, 'force');
+text = text(0, 0, 'force');
 
 for j = 1:length(cart_position)
     pole_angle(j) = pole_angle(j) + pi / 2;
     set(cart,'Position', [(cart_position(j) - cart_width / 2), 0, cart_width, cart_height]);
     set(pole,'XData', [cart_position(j), (cart_position(j) + cos(pole_angle(j)))]);
     set(pole,'YData', [(cart_height / 2), ((cart_height / 2) + sin(pole_angle(j)))]);
-    
-    set(label, 'String', force(j));
-    
+    set(text, '
     refreshdata;
     drawnow;
     %Frames(:, j) = getframe;
