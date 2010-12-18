@@ -1,13 +1,15 @@
+%addPath('/Volumes/Data/Projects/PoleBalance/mpgwrite/');
+
 cart_width = .5;
 cart_height = .3;
 pole_length = .5;
 wall_size = .1;
 
-fps = 50; % Hz
-
 figure('color','white');
 
 [generation, fitness, k, l, m, n, time_step, fail_position] = textread('./build/Debug/header.dat', '%d %f %f %f %f %f %f %f', 'headerlines', 1);
+
+fps = 1 / time_step; % Hz
 
 title({['Generation: ', num2str(generation)], ['Fitness: ', num2str(fitness)]});
 
@@ -24,7 +26,7 @@ rectangle('Position', [-fail_position - cart_width / 2, -wall_size, fail_positio
 border_left = rectangle('Position', [-fail_position - cart_width / 2 - wall_size, -wall_size, wall_size, .6], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
 border_right = rectangle('Position', [+fail_position + cart_width / 2, -wall_size, wall_size, .6], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
 
-%Frames = moviein(length(cart_position));
+Frames = moviein(length(cart_position));
 
 hold on
 
@@ -48,8 +50,8 @@ for j = 1:length(cart_position)
     
     refreshdata;
     drawnow;
-    %Frames(:, j) = getframe;
+    Frames(:, j) = getframe;
 end
 
-%movie(Frames, 1, fps);
-%mpgwrite(Frames, colormap, 'render.mpg');
+%mpgwrite(Frames, colormap, './build/Debug/render.mpg');
+movie2avi(Frames, './build/Debug/render.avi', 'fps', fps, 'quality', 75);
