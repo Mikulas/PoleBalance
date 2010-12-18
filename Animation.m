@@ -32,7 +32,8 @@ hold on
 
 cart = rectangle();
 pole = line([0 0], [1 1], 'color', [.4 .7 .3], 'lineWidth', 2);
-label = text(-2, -2, 'force');
+label_force = text(-2, -2, 'force');
+label_angle = text(-2, -1.7, 'angle');
 
 for j = 1:length(cart_position)
     pole_angle(j) = pole_angle(j) + pi / 2;
@@ -46,7 +47,8 @@ for j = 1:length(cart_position)
         set(border_right, 'faceColor', [.7, .1, .1]);
     end
     
-    set(label, 'String', force(j));
+    set(label_force, 'String', force(j));
+    set(label_angle, 'String', strcat(int2str((pole_angle(j) - pi / 2) * 180 / pi), '^o'));
     
     refreshdata;
     drawnow;

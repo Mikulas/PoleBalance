@@ -7,14 +7,14 @@
  *
  */
 
-#define GENERATION_SIZE 100
-#define GENERATION_COUNT 1000
+#define GENERATION_SIZE 10
+#define GENERATION_COUNT 10
 
 
 const double fail_position = 2.4; // [meters]
 //const double fail_angle = 12 * M_PI / 180; // [radians] 12 degrees
 
-const double g_acceleration = 9.81; // [meters/second/second]
+const double g_acceleration = -9.81; // [meters/second/second]
 const double force = 10; // [newtons]
 
 const double pole_length = 0.5; // [meters] relative from pivot

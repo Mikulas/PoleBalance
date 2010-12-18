@@ -48,6 +48,5 @@ int main (int argc, const char * argv[])
 	printf("best solution:\n");
 	printEntity(&solution);
 	writeEntity(&solution, i);
-	
     return 0;
 }
