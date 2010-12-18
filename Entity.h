@@ -153,6 +153,9 @@ void writeEntity(Entity *f, int generation)
 		e->pole_acceleration = (g_acceleration * sin(e->pole_angle) + cos(e->pole_angle) * ((-e->force - pole_mass * pole_length * square(e->pole_velocity) * sin(e->pole_angle)) / (cart_mass + pole_mass))) / (pole_length * (4/3 - (pole_mass * square(cos(e->pole_angle))) / (cart_mass + pole_mass)));
 		e->cart_acceleration = (e->force + pole_mass * pole_length * (square(e->pole_velocity) * sin(e->pole_angle) - e->pole_acceleration * cos(e->pole_angle))) / (cart_mass + pole_mass);
 				
+		if (abs(e->cart_position) > fail_position) {
+			e->cart_position = sgn(e->cart_position) * fail_position;
+		}
 		fprintf(stream, "%f %f %s\n", e->cart_position, e->pole_angle, sgn(e->force) == -1 ? "left" : "right");
 		//printEntity(e);
 		if (e->cart_position * sgn(e->cart_position) >= fail_position) {

@@ -1,6 +1,7 @@
 cart_width = .5;
 cart_height = .3;
 pole_length = .5;
+wall_size = .1;
 
 fps = 50; % Hz
 
@@ -15,9 +16,13 @@ set(gca, 'YTickLabelMode', 'Manual')
 set(gca, 'YTick', [])
 set(gca, 'YColor', [1 1 1])
 
-axis ([(-fail_position - cart_width / 2) (fail_position + cart_width / 2) (-fail_position - cart_width / 2) (fail_position + cart_width / 2)]);
+axis ([(-fail_position - cart_width / 2 - 2 * wall_size) (fail_position + cart_width / 2 + 2 * wall_size) (-fail_position - cart_width / 2) (fail_position + cart_width / 2)]);
 
 [cart_position, pole_angle, force] = textread('./build/Debug/movement.dat', '%f %f %s', 'headerlines', 1);
+
+rectangle('Position', [-fail_position - cart_width / 2, -wall_size, fail_position * 2 + cart_width, wall_size], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
+border_left = rectangle('Position', [-fail_position - cart_width / 2 - wall_size, -wall_size, wall_size, .6], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
+border_right = rectangle('Position', [+fail_position + cart_width / 2, -wall_size, wall_size, .6], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
 
 %Frames = moviein(length(cart_position));
 
@@ -32,6 +37,12 @@ for j = 1:length(cart_position)
     set(cart,'Position', [(cart_position(j) - cart_width / 2), 0, cart_width, cart_height]);
     set(pole,'XData', [cart_position(j), (cart_position(j) + cos(pole_angle(j)))]);
     set(pole,'YData', [(cart_height / 2), ((cart_height / 2) + sin(pole_angle(j)))]);
+    
+    if cart_position(j) == -fail_position
+        set(border_left, 'faceColor', [.7, .1, .1]);
+    elseif cart_position(j) == fail_position
+        set(border_right, 'faceColor', [.7, .1, .1]);
+    end
     
     set(label, 'String', force(j));
     

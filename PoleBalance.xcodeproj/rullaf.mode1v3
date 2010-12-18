@@ -325,7 +325,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>30F47F3B12BCB04C002A58A2</string>
+										<string>30F47F3E12BCB081002A58A2</string>
 										<key>history</key>
 										<array>
 											<string>30543DA112B944B00076F6A8</string>
@@ -534,12 +534,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>30F47F3C12BCB04C002A58A2</string>
 		<string>30F47E5F12BCA307002A58A2</string>
 		<string>30F47E6012BCA307002A58A2</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>30543CBB12B9206A0076F6A8</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Volumes/Data/Projects/PoleBalance/PoleBalance.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -922,7 +921,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
