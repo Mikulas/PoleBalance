@@ -12,10 +12,10 @@ Generation getRandomGeneration()
 	Generation gen;
 	for (int i = 0; i < GENERATION_SIZE; i++) {
 		gen.population[i] = getNewEntity();
-		gen.population[i].c_cart_position = getRandomSign() * mod(rand() / 10e6, 100);
-		gen.population[i].c_cart_velocity = getRandomSign() * mod(rand() / 10e6, 100);
-		gen.population[i].c_pole_angle = getRandomSign() * mod(rand() / 10e6, 100);
-		gen.population[i].c_pole_velocity = getRandomSign() * mod(rand() / 10e6, 100);		
+		gen.population[i].c_cart_position = getRandomSign() * rand() % (int)10e4;
+		gen.population[i].c_cart_velocity = getRandomSign() * rand() % (int)10e4;
+		gen.population[i].c_pole_angle = getRandomSign() * rand() % (int)10e4;
+		gen.population[i].c_pole_velocity = getRandomSign() * rand() % (int)10e4;
 	}
 	
 	gen.fitness_sum = 0;
@@ -50,14 +50,20 @@ Entity getWeightedEntity(Generation *gen)
 }
 
 
-
-double getMerge(double e, double f)
+/**
+ * decimal single point crossover
+ */
+long int getMerge(long int e, long int f)
 {
-	double merge;
+	long int split = power(10, ceil(log10(e)) / 2);
+	e = e / split; // quickest way
+	e = e * split;
 	
-	merge = e + getRandomSign() * mod(rand(), 300);
-		
-	return merge;
+	long int t = f / split;
+	t = t * split;
+	f = mod(f, t);
+	
+	return e + f;
 }
 
 

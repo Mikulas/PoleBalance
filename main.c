@@ -41,6 +41,9 @@ int main (int argc, const char * argv[])
 	for (i = 0; i < GENERATION_COUNT; i++) {
 		printf("generating %d out of %d\n", i + 1, GENERATION_COUNT);
 		g = getNextGeneration(&g);
+		/* for (int k = 0; k < GENERATION_SIZE; k++) {
+			printEntity(&g.population[k]);
+		} */
 	}
 	
 	Entity solution = getBestEntity(&g);

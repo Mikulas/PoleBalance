@@ -34,7 +34,7 @@ double getGenerationFitnessSum(Generation *gen)
 
 Entity getBestEntity(Generation *gen)
 {
-	double best_fitness = DBL_MIN;
+	double best_fitness = -DBL_MAX;
 	int index = -1;
 	
 	for (int i = 0; i < GENERATION_SIZE; i++) {
