@@ -7,11 +7,12 @@
  *
  */
 
-#define GENERATION_SIZE 50
-#define GENERATION_COUNT 100
+#define GENERATION_SIZE 1000
+#define GENERATION_COUNT 200
 
 
 const double fail_position = 2.4; // [meters]
+const double fail_angle = M_PI / 6; // [radians] 30 degrees
 
 const double g_acceleration = -9.81; // [meters/second/second]
 const double force = 10; // [newtons]

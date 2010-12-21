@@ -39,16 +39,16 @@ int main (int argc, const char * argv[])
 	
 	int i;
 	for (i = 0; i < GENERATION_COUNT; i++) {
-		printf("generating %d out of %d\n", i + 1, GENERATION_COUNT);
+		printf("\rgenerating %0.2f%%", 100 * ((float) i + 1) / (float) GENERATION_COUNT);
+		fflush(stdout);
 		g = getNextGeneration(&g);
 		/* for (int k = 0; k < GENERATION_SIZE; k++) {
 			printEntity(&g.population[k]);
 		} */
 	}
-	
-	Entity solution = getBestEntity(&g);
 
-	printf("best solution:\n");
+	printf("\nbest solution:\n");
+	Entity solution = getBestEntity(&g);
 	printEntity(&solution);
 	writeEntity(&solution, i);
     return 0;

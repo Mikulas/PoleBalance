@@ -42,11 +42,11 @@ Entity getNewEntity()
 	Entity e;
 	e.c_cart_position = e.c_cart_velocity = e.c_pole_angle = e.c_pole_velocity = 0;
 	
-	e.cart_position = 0; // (getRandomSign() * (rand() % fail_position));
+	e.cart_position = 0;
 	e.cart_velocity = 0;
 	e.cart_acceleration = 0;
 	
-	e.pole_angle = e.pole_angle_origin = M_PI;//mod(getRandomSign() * (double) rand() / 10e7, 2 * M_PI);
+	e.pole_angle = e.pole_angle_origin = M_PI / 36; // 5 degrees
 	e.pole_velocity = 0;
 	e.pole_acceleration = 0;
 	
@@ -91,7 +91,7 @@ double getEntityFitness(Entity *e)
 			e->pole_angle = (e->pole_angle + time_step * e->pole_velocity);
 			e->cart_position = e->cart_position + time_step * e->cart_velocity;
 			
-			e->force = force * sgn(e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity);
+			e->force = force * (e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1; // intentionally not sgn
 			e->cart_acceleration = (e->force + pole_mass * pole_length * square(sin(e->pole_angle)) - pole_mass * g_acceleration * cos(e->pole_angle) * sin(e->pole_angle)) / (cart_mass + pole_mass - pole_mass * square(cos(e->pole_angle)));
 			e->pole_acceleration = (e->force * cos(e->pole_angle) - g_acceleration * (pole_mass + cart_mass) * sin(e->pole_angle) + pole_mass * pole_length * cos(e->pole_angle) * sin(e->pole_angle) * e->pole_velocity) / (pole_mass * pole_length * square(cos(e->pole_angle)) - (pole_mass + cart_mass) * pole_length);
 			
@@ -101,20 +101,15 @@ double getEntityFitness(Entity *e)
 			//printEntity(e);
 			if (e->cart_position * sgn(e->cart_position) >= fail_position) {
 				e->failed = 1;
-				break;
+				e->fitness = t;
+				return t;
+			} else if (abs(mod(e->pole_angle, M_PI)) > fail_angle) {
+				e->failed = 1;
+				e->fitness = t;
+				return t;
 			}
 		}
-		
-		/**
-		 * abs(): direction does not matter
-		 * mod(): base value of angle
-		 */
-		e->pole_angle = mod(abs(e->pole_angle), 2 * M_PI);
-		if (e->pole_angle > M_PI) {
-			e->pole_angle = 2 * M_PI - e->pole_angle;
-		}
-		
-		e->fitness = - 15 * abs(e->pole_angle) - 2 * abs(e->pole_velocity) - 10 * abs(e->cart_position) - 0.1 * abs(e->cart_velocity);
+		e->fitness = time;
 	}
 	
 	return e->fitness;
@@ -147,24 +142,20 @@ void writeEntity(Entity *f, int generation)
 		e->pole_angle = (e->pole_angle + time_step * e->pole_velocity);
 		e->cart_position = e->cart_position + time_step * e->cart_velocity;
 		
-		e->force = force * sgn(e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity);
+		e->force = force * (e->c_cart_position * e->cart_position + e->c_cart_velocity * e->cart_velocity + e->c_pole_angle * e->pole_angle + e->c_pole_velocity * e->pole_velocity) > 0 ? 1 : -1; // intentionally not sgn
 		e->cart_acceleration = (e->force + pole_mass * pole_length * square(sin(e->pole_angle)) - pole_mass * g_acceleration * cos(e->pole_angle) * sin(e->pole_angle)) / (cart_mass + pole_mass - pole_mass * square(cos(e->pole_angle)));
 		e->pole_acceleration = (e->force * cos(e->pole_angle) - g_acceleration * (pole_mass + cart_mass) * sin(e->pole_angle) + pole_mass * pole_length * cos(e->pole_angle) * sin(e->pole_angle) * e->pole_velocity) / (pole_mass * pole_length * square(cos(e->pole_angle)) - (pole_mass + cart_mass) * pole_length);
 		
 		e->pole_velocity = e->pole_velocity - time_step * e->pole_acceleration;
 		e->cart_velocity = e->cart_velocity + time_step * e->cart_acceleration;
+
+		fprintf(stream, "%f %f %f\n", e->cart_position, e->pole_angle, e->cart_velocity);
 		
-		if (e->pole_angle < M_PI / 2 || e->pole_angle > 3 * M_PI / 2) {
-			//printf("\nDOES NOT WORK\n");
-			//exit(5);
-		}
-		
-		if (abs(e->cart_position) > fail_position) {
-			e->cart_position = sgn(e->cart_position) * fail_position;
-		}
-		fprintf(stream, "%f %f %s\n", e->cart_position, e->pole_angle, sgn(e->force) == -1 ? "left" : "right");
-		//printEntity(e);
 		if (e->cart_position * sgn(e->cart_position) >= fail_position) {
+			e->cart_position = sgn(e->cart_position) * fail_position;
+			e->failed = 1;
+			break;
+		} else if (abs(mod(e->pole_angle, M_PI)) > fail_angle) {
 			e->failed = 1;
 			break;
 		}

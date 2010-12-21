@@ -50,32 +50,19 @@ Entity getWeightedEntity(Generation *gen)
 }
 
 
+
 /**
- * decimal single point crossover
+ * Single point crossover (2|2)
+ * Mutation ±5%
  */
-long int getMerge(long int e, long int f)
-{
-	long int split = power(10, ceil(log10(e)) / 2);
-	e = e / split; // quickest way
-	e = e * split;
-	
-	long int t = f / split;
-	t = t * split;
-	f = mod(f, t);
-	
-	return e + f;
-}
-
-
-
 Entity getEntityMerge(Entity *e, Entity *f)
 {
 	Entity merge = getNewEntity();
 	
-	merge.c_cart_position = getMerge(e->c_cart_position, f->c_cart_position);
-	merge.c_cart_velocity = getMerge(e->c_cart_velocity, f->c_cart_velocity);
-	merge.c_pole_angle = getMerge(e->c_pole_angle, f->c_pole_angle);
-	merge.c_pole_velocity = getMerge(e->c_pole_velocity, f->c_pole_velocity);
+	merge.c_cart_position = e->c_cart_position + getRandomSign() * mod(rand(), e->c_cart_position * 0.05);
+	merge.c_cart_velocity = e->c_cart_velocity + getRandomSign() * mod(rand(), e->c_cart_velocity * 0.05);
+	merge.c_pole_angle = f->c_pole_angle + getRandomSign() * mod(rand(), f->c_pole_angle * 0.05);
+	merge.c_pole_velocity = f->c_pole_velocity + getRandomSign() * mod(rand(), f->c_pole_velocity * 0.05);
 	
 	return merge;
 }

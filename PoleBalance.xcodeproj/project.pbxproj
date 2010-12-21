@@ -111,6 +111,9 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = NO;
+			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "PoleBalance" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -143,9 +146,12 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				INSTALL_PATH = /usr/local/bin;
+				LD_OPENMP_FLAGS = "-fopenmp";
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = PoleBalance;
+				Saturn = "";
 			};
 			name = Debug;
 		};
@@ -171,6 +177,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+				Saturn = "-finstrument-functions";
 			};
 			name = Debug;
 		};
