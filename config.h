@@ -22,5 +22,5 @@ const double pole_length = 0.5; // [meters] relative from pivot
 const double pole_mass = 0.1; // [kilograms]
 const double cart_mass = 1; // [kilograms]
 
-const double time = 20; // [seconds]
+const double time_total = 20; // [seconds]
 const double time_step = 0.025; // [seconds]

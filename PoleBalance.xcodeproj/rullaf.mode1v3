@@ -271,7 +271,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
+									<integer>7</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -314,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>main.c</string>
+								<string>Entity.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,22 +322,22 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>main.c</string>
+										<string>Entity.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>30F7A06912C0C8490045FF45</string>
+										<string>30F7A08A12C0D8DC0045FF45</string>
 										<key>history</key>
 										<array>
 											<string>30543DA112B944B00076F6A8</string>
 											<string>3084191112BA860E005843F7</string>
 											<string>3058F6CD12BBF5E200FB79D8</string>
 											<string>309AA4CC12BFB445005D9760</string>
-											<string>3011730D12C0C6E900C44BB1</string>
-											<string>3011731212C0C70800C44BB1</string>
 											<string>3011731912C0C73D00C44BB1</string>
-											<string>3011733D12C0C84200C44BB1</string>
-											<string>3011734012C0C84200C44BB1</string>
+											<string>30F7A08612C0D8DC0045FF45</string>
+											<string>30F7A08712C0D8DC0045FF45</string>
+											<string>30F7A08812C0D8DC0045FF45</string>
+											<string>30F7A08912C0D8DC0045FF45</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -535,6 +535,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>30F7A08B12C0D8DC0045FF45</string>
+		<string>30F7A08C12C0D8DC0045FF45</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>30543CBB12B9206A0076F6A8</string>
 		<string>/Volumes/Data/Projects/PoleBalance/PoleBalance.xcodeproj</string>
 	</array>
@@ -738,13 +742,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>301172D712C0C27600C44BB1</string>
+				<string>30F7A07D12C0CE570045FF45</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>301172D812C0C27600C44BB1</string>
-				<string>301172D912C0C27600C44BB1</string>
-				<string>301172DA12C0C27600C44BB1</string>
-				<string>301172DB12C0C27600C44BB1</string>
-				<string>301172DC12C0C27600C44BB1</string>
+				<string>30F7A07E12C0CE570045FF45</string>
+				<string>30F7A07F12C0CE570045FF45</string>
+				<string>30F7A08012C0CE570045FF45</string>
+				<string>30F7A08112C0CE570045FF45</string>
+				<string>30F7A08212C0CE570045FF45</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -908,7 +912,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>301172DD12C0C27600C44BB1</string>
+				<string>30F7A08312C0CE570045FF45</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -918,7 +922,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

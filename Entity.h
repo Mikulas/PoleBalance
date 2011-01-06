@@ -84,7 +84,7 @@ void printEntity(Entity *e)
 double getEntityFitness(Entity *e)
 {
 	if (e->fitness == 0) {
-		for (double t = 0; t < time; t += time_step) {
+		for (double t = 0; t < time_total; t += time_step) {
 			/**
 			 * @see http://www.profjrwhite.com/system_dynamics/sdyn/s7/s7invp2/s7invp2.html
 			 */
@@ -109,7 +109,7 @@ double getEntityFitness(Entity *e)
 				return t;
 			}
 		}
-		e->fitness = time;
+		e->fitness = time_total;
 	}
 	
 	return e->fitness;
@@ -136,7 +136,7 @@ void writeEntity(Entity *f, int generation)
 	
 	stream = fopen("movement.dat", "wt");
 	fprintf(stream, "cart_position pole_angle\n");
-	for (double t = 0; t < time; t += time_step) {
+	for (double t = 0; t < time_total; t += time_step) {
 		
 		/** @todo fixme this is just copy and paste of getFitness */
 		e->pole_angle = (e->pole_angle + time_step * e->pole_velocity);

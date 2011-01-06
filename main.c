@@ -3,6 +3,8 @@
 #include <math.h>
 #include <limits.h>
 #include <float.h>
+#include <time.h>
+#include <stdlib.h>
 
 #include "config.h"
 #include "math.h"
@@ -30,6 +32,8 @@ int main (int argc, const char * argv[])
 	 * The wheels of cart do not slip
 	 * The motor torque limit is not encountered
 	 */
+
+	srand(time(NULL));
 	
 	printf("Pole Balance\n");
 
