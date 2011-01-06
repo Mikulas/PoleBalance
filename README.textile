@@ -1,7 +1,7 @@
 h1. Pole Balance
 
 * _Author_: Mikuláš Dítě
-* _Copyright_: (c) Mikuláš Dítě 2010
+* _Copyright_: (c) Mikuláš Dítě 2010-2011
 
 h2. Description
 
@@ -33,7 +33,7 @@ where k are the constants we are generating.
 
 h2. License
 
-Copyright (c) Mikuláš Dítě, 2010
+Copyright (c) Mikuláš Dítě, 2010-2011
 All rights reserved.
 
 *Redistribution* and use in source and binary forms, with or without
