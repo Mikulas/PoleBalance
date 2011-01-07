@@ -20,7 +20,7 @@ set(gca, 'YColor', [1 1 1])
 
 axis ([(-fail_position - cart_width / 2 - 2 * wall_size) (fail_position + cart_width / 2 + 2 * wall_size) (-fail_position - cart_width / 2) (fail_position + cart_width / 2)]);
 
-[cart_position, pole_angle, force] = textread('./build/Debug/movement.dat', '%f %f %s', 'headerlines', 1);
+[cart_position, pole_angle, force] = textread('./build/Debug/movement.dat', '%f %f %f', 'headerlines', 1);
 
 rectangle('Position', [-fail_position - cart_width / 2, -wall_size, fail_position * 2 + cart_width, wall_size], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
 border_left = rectangle('Position', [-fail_position - cart_width / 2 - wall_size, -wall_size, wall_size, .6], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
@@ -32,8 +32,9 @@ hold on
 
 cart = rectangle();
 pole = line([0 0], [1 1], 'color', [.4 .7 .3], 'lineWidth', 2);
-label_force = text(-2, -2, 'force');
+label_time = text(-2, -1.4, 'time');
 label_angle = text(-2, -1.7, 'angle');
+label_force = text(-2, -2, 'force');
 
 for j = 1:length(cart_position)
     pole_angle(j) = pole_angle(j) + pi / 2;
@@ -47,9 +48,10 @@ for j = 1:length(cart_position)
         set(border_right, 'faceColor', [.7, .1, .1]);
     end
     
-    set(label_force, 'String', force(j));
-    set(label_angle, 'String', strcat(int2str((pole_angle(j) - pi / 2) * 180 / pi), '^o'));
-    
+    set(label_time, 'String', strcat({'time:  '}, num2str(j * time_step, '%.3f'), ' sec'));
+    set(label_angle, 'String', strcat({'angle:  '}, num2str((pole_angle(j) - pi / 2) * 180 / pi, '%.3f'), '^o'));
+    set(label_force, 'String', strcat({'force:  '}, num2str(force(j), '%.3f'), {' N'}));
+       
     refreshdata;
     drawnow;
     Frames(:, j) = getframe;
