@@ -5,6 +5,8 @@
 #include <float.h>
 #include <time.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "config.h"
 #include "math.h"
@@ -41,19 +43,32 @@ int main (int argc, const char * argv[])
 
 	printf("\n");
 	
+	FILE *stream;
+	char output_file[254];
+	sprintf(output_file, "average_fitness.%i.txt", GENERATION_SIZE);
+	stream = fopen(output_file, "wt");
+	
 	int i;
 	for (i = 0; i < GENERATION_COUNT; i++) {
 		printf("\rgenerating %0.2f%%", 100 * ((float) i + 1) / (float) GENERATION_COUNT);
+		if (i % 5 == 0 && i == 20) {
+			Entity best = getBestEntity(&g);
+			writeEntity(&best, i, "-best");
+			Entity worst = getWorstEntity(&g);
+			writeEntity(&worst, i, "-worst");
+		}
 		fflush(stdout);
 		g = getNextGeneration(&g);
-		/* for (int k = 0; k < GENERATION_SIZE; k++) {
-			printEntity(&g.population[k]);
-		} */
+		fprintf(stream, "%i\t%f\n", i + 1, getGenerationAverageFitness(&g));
 	}
+	fclose(stream);
 
 	printf("\nbest solution:\n");
 	Entity solution = getBestEntity(&g);
 	printEntity(&solution);
-	writeEntity(&solution, i);
+	writeEntity(&solution, i, "-best");
+	
+	Entity worst = getWorstEntity(&g);
+	writeEntity(&worst, i, "-worst");
     return 0;
 }

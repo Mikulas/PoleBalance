@@ -7,31 +7,16 @@ h2. Description
 
 !http://files.droplr.com/files/71192952/k1BS.Screen%20shot%202010-12-16%20at%2019%3A19%3A13.png!
 
-!http://files.droplr.com/files/71192952/HJG0.Screen%20shot%202010-12-16%20at%2019%3A17%3A54.png!
-
 h2. Conditions
 
-* The cart must remain within ±h of origin
+* The cart must remain within ±h of origin (defaults to 2.4 meters)
+* The pole must remain within ±angle (defaults to 30 degrees)
 * The controller must always exert a non-zero force F
 
-h2. Assumptions
-* The movement of cart and pivot is completely frictionless
-* The electrical system for response is instantaneous
-* The wheels of cart do not slip
-* The motor torque limit is not encountered
+h2. Resources
+* [1] BROWNLEE, J. _The pole balancing problem_. [online]. [cit. 2011/01/08]. Available at <"http://www.ict.swin.edu.au/personal/jbrownlee/2005/TR07-2005.pdf":http://www.ict.swin.edu.au/personal/jbrownlee/2005/TR07-2005.pdf>
 
-h2. Equations
-
-!http://files.droplr.com/files/71192952/NqE1.Screen%20shot%202010-12-16%20at%2019%3A18%3A13.png!
-
-!http://files.droplr.com/files/71192952/qtNi.Screen%20shot%202010-12-16%20at%2019%3A18%3A29.png!
-
-!http://files.droplr.com/files/71192952/h0Wc.Screen%20shot%202010-12-16%20at%2019%3A19%3A43.png!
-
-where k are the constants we are generating.
-
-
-h2. License
+h2. License - Original BSD License
 
 Copyright (c) Mikuláš Dítě, 2010-2011
 All rights reserved.

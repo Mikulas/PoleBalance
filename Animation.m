@@ -7,7 +7,7 @@ wall_size = .1;
 
 figure('color','white');
 
-[generation, fitness, k, l, m, n, time_step, fail_position] = textread('./build/Debug/header.dat', '%d %f %f %f %f %f %f %f', 'headerlines', 1);
+[generation, fitness, k, l, m, n, time_step, fail_position] = textread('./build/Debug/gen_20_of_200_header-worst.dat', '%d %f %f %f %f %f %f %f', 'headerlines', 1);
 
 fps = 1 / time_step; % Hz
 
@@ -20,7 +20,7 @@ set(gca, 'YColor', [1 1 1])
 
 axis ([(-fail_position - cart_width / 2 - 2 * wall_size) (fail_position + cart_width / 2 + 2 * wall_size) (-fail_position - cart_width / 2) (fail_position + cart_width / 2)]);
 
-[cart_position, pole_angle, force] = textread('./build/Debug/movement.dat', '%f %f %f', 'headerlines', 1);
+[cart_position, pole_angle, force] = textread('./build/Debug/gen_20_of_200_movement-worst.dat', '%f %f %f', 'headerlines', 1);
 
 rectangle('Position', [-fail_position - cart_width / 2, -wall_size, fail_position * 2 + cart_width, wall_size], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);
 border_left = rectangle('Position', [-fail_position - cart_width / 2 - wall_size, -wall_size, wall_size, .6], 'faceColor', [.5, .5, .5], 'edgeColor', [.5, .5, .5]);

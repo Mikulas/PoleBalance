@@ -7,7 +7,7 @@
  *
  */
 
-#define GENERATION_SIZE 1000
+#define GENERATION_SIZE 300
 #define GENERATION_COUNT 200
 
 

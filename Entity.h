@@ -117,7 +117,7 @@ double getEntityFitness(Entity *e)
 
 
 
-void writeEntity(Entity *f, int generation)
+void writeEntity(Entity *f, int generation, char* postfix)
 {
 	Entity* e = f;
 	e->pole_velocity = 0;
@@ -129,12 +129,17 @@ void writeEntity(Entity *f, int generation)
 
 	FILE *stream;
 	
-	stream = fopen("header.dat", "wt");
+	char file_header[254];
+	sprintf(file_header, "gen_%i_of_%i_header%s.dat", generation, GENERATION_COUNT, postfix);
+	char file_data[254];
+	sprintf(file_data, "gen_%i_of_%i_movement%s.dat", generation, GENERATION_COUNT, postfix);
+	
+	stream = fopen(file_header, "wt");
 	fprintf(stream, "generation fitness k l m n time_step fail_position\n");
 	fprintf(stream, "%d %f %ld %ld %ld %ld %f %f\n", generation, getEntityFitness(e), e->c_cart_position, e->c_cart_velocity, e->c_pole_angle, e->c_pole_velocity, time_step, fail_position);
 	fclose(stream);
 	
-	stream = fopen("movement.dat", "wt");
+	stream = fopen(file_data, "wt");
 	fprintf(stream, "cart_position pole_angle\n");
 	for (double t = 0; t < time_total; t += time_step) {
 		

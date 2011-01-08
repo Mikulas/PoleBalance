@@ -46,3 +46,31 @@ Entity getBestEntity(Generation *gen)
 	
 	return gen->population[index];
 }
+
+
+
+Entity getWorstEntity(Generation *gen)
+{
+	double worst_fitness = DBL_MAX;
+	int index = -1;
+	
+	for (int i = 0; i < GENERATION_SIZE; i++) {
+		if (getEntityFitness(&gen->population[i]) < worst_fitness) {
+			index = i;
+			worst_fitness = getEntityFitness(&gen->population[i]);
+		}
+	}
+	
+	return gen->population[index];
+}
+
+
+
+double getGenerationAverageFitness(Generation *gen)
+{
+	unsigned long sum = 0;
+	for (int i = 0; i < GENERATION_SIZE; i++) {
+		sum += getEntityFitness(&gen->population[i]);
+	}
+	return (double) sum / GENERATION_SIZE;
+}
