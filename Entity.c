@@ -83,6 +83,38 @@ void printEntity(Entity *e)
 
 double getEntityFitness(Entity *e)
 {
+	{
+		// Problem size
+		int n = 32000;
+		
+		// Allocate some memory and a place for the results
+		float * a = (float *)malloc(n*sizeof(float));
+		float * b = (float *)malloc(n*sizeof(float));
+		float * results = (float *)malloc(n*sizeof(float));
+		
+		getEntityFitnessAccelerated(
+			&e->cart_position,
+			&e->cart_velocity,
+			&e->cart_acceleration,
+			&e->pole_angle,
+			&e->pole_angle_origin,
+			&e->pole_velocity,
+			&e->pole_acceleration,
+			&e->force,
+			&e->fitness,
+			&e->c_cart_position,
+			&e->c_cart_velocity,
+			&e->c_pole_angle,
+			&e->c_pole_velocity
+		);
+		for(int i=0;i<n;i++) printf("%f\n",results[i]);
+		
+		// Free up memory
+		free(a);
+		free(b);
+		free(results);
+	}
+		
 	if (e->fitness == 0) {
 		for (double t = 0; t < time_total; t += time_step) {
 			/**

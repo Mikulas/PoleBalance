@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B48175C12EB17F000E2348C /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48175B12EB17F000E2348C /* OpenCL.framework */; };
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* PoleBalance.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* PoleBalance.1 */; };
 /* End PBXBuildFile section */
@@ -26,11 +27,14 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		30543CDB12B92B7F0076F6A8 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		30543CDC12B92C8A0076F6A8 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
-		30543D4012B92FA60076F6A8 /* Generation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generation.h; sourceTree = "<group>"; };
-		30543D7A12B93F280076F6A8 /* evolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evolution.h; sourceTree = "<group>"; };
-		308417E412BA5E4B005843F7 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		1B48175B12EB17F000E2348C /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		1B48175F12EB181100E2348C /* opencl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opencl.c; sourceTree = "<group>"; };
+		1B48176512EB193300E2348C /* fitness.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; path = fitness.cl; sourceTree = "<group>"; };
+		30543CDB12B92B7F0076F6A8 /* config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = config.c; sourceTree = "<group>"; };
+		30543CDC12B92C8A0076F6A8 /* math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = math.c; sourceTree = "<group>"; };
+		30543D4012B92FA60076F6A8 /* Generation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Generation.c; sourceTree = "<group>"; };
+		30543D7A12B93F280076F6A8 /* evolution.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = evolution.c; sourceTree = "<group>"; };
+		308417E412BA5E4B005843F7 /* Entity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Entity.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* PoleBalance */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PoleBalance; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* PoleBalance.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PoleBalance.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B48175C12EB17F000E2348C /* OpenCL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +57,7 @@
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				1B48175B12EB17F000E2348C /* OpenCL.framework */,
 			);
 			name = PoleBalance;
 			sourceTree = "<group>";
@@ -60,11 +66,13 @@
 			isa = PBXGroup;
 			children = (
 				08FB7796FE84155DC02AAC07 /* main.c */,
-				30543CDB12B92B7F0076F6A8 /* config.h */,
-				30543CDC12B92C8A0076F6A8 /* math.h */,
-				30543D4012B92FA60076F6A8 /* Generation.h */,
-				30543D7A12B93F280076F6A8 /* evolution.h */,
-				308417E412BA5E4B005843F7 /* Entity.h */,
+				30543CDB12B92B7F0076F6A8 /* config.c */,
+				30543CDC12B92C8A0076F6A8 /* math.c */,
+				30543D4012B92FA60076F6A8 /* Generation.c */,
+				30543D7A12B93F280076F6A8 /* evolution.c */,
+				308417E412BA5E4B005843F7 /* Entity.c */,
+				1B48175F12EB181100E2348C /* opencl.c */,
+				1B48176512EB193300E2348C /* fitness.cl */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -184,7 +192,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
-				Saturn = "-finstrument-functions";
 			};
 			name = Debug;
 		};

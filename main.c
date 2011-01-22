@@ -8,11 +8,12 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "config.h"
-#include "math.h"
-#include "Entity.h"
-#include "Generation.h"
-#include "evolution.h"
+#include "opencl.c"
+#include "config.c"
+#include "math.c"
+#include "Entity.c"
+#include "Generation.c"
+#include "evolution.c"
 
 
 /**
