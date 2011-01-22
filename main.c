@@ -51,7 +51,7 @@ int main (int argc, const char * argv[])
 	int i;
 	for (i = 0; i < GENERATION_COUNT; i++) {
 		printf("\rgenerating %0.2f%%", 100 * ((float) i + 1) / (float) GENERATION_COUNT);
-		if (i % 5 == 0 && i == 20) {
+		if (i % 5 == 0) {
 			Entity best = getBestEntity(&g);
 			writeEntity(&best, i, "-best");
 			Entity worst = getWorstEntity(&g);
